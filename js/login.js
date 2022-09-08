@@ -2,6 +2,10 @@ let email = document.getElementById('box-email');
 let password = document.getElementById('box-password');
 let button = document.getElementById('get-into');
 
+if (sessionStorage.getItem('condition') == 'loggedInUser') {
+    location.href = "index.html";
+}
+
 button.addEventListener('click', function(event){
 
     

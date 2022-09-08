@@ -13,5 +13,9 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+if (sessionStorage.getItem('condition') == null) {
+    location.href = "login.html";
+}
+
 let actualUser = document.getElementById("user-name");
 actualUser.innerHTML = `${sessionStorage.getItem('loggedInUser')}`;
