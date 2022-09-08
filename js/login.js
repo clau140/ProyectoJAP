@@ -17,5 +17,8 @@ button.addEventListener('click', function(event){
     else {
        
         location.href = "index.html";
+        
+        //a través de sessionStorage se obtuvo el valor del email del usuario ingresado
+        sessionStorage.setItem('loggedInUser', email.value);
     }
 })

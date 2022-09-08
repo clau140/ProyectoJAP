@@ -12,3 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+let actualUser = document.getElementById("user-name");
+actualUser.innerHTML = `${sessionStorage.getItem('loggedInUser')}`;
