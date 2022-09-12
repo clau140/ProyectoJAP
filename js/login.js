@@ -22,7 +22,10 @@ button.addEventListener('click', function(event){
        
         location.href = "index.html";
         
-        //a través de sessionStorage se obtuvo el valor del email del usuario ingresado
+        //a través de sessionStorage si no está logueado se redirecciona la pantalla de login
+        sessionStorage.setItem('condition','loggedInUser');
+        
+        //a través de sessionStorage si está logueado se muestra en en index.js el email ingresado en la pantalla de login
         sessionStorage.setItem('loggedInUser', email.value);
     }
 })
