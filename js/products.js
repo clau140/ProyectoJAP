@@ -6,34 +6,7 @@ let minPrice = undefined;
 let maxPrice = undefined;
 let currentProductsArray = [];
 
-function sortProducts(criteria, array){
-    let result = [];
-    if (criteria === ORDER_ASC_BY_PRICE){
-        result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_PRICE){
-        result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_RELEVANCE){
-        result = array.sort(function(a, b) {
-            let aCount = parseInt(a.salesCount);
-            let bCount = parseInt(b.salesCount);
-
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
-    }
-
-    return result;
-}
-          
+         
 function showProductsList(){
 
     let htmlContentToAppend = "";
@@ -62,6 +35,34 @@ function showProductsList(){
         }
 
         document.getElementById('list-products').innerHTML = htmlContentToAppend;
+    }}
+
+    function sortProducts(criteria, array){
+        let result = [];
+        if (criteria === ORDER_ASC_BY_PRICE){
+            result = array.sort(function(a, b) {
+                if ( a.cost < b.cost ){ return -1; }
+                if ( a.cost > b.cost ){ return 1; }
+                return 0;
+            });
+        }else if (criteria === ORDER_DESC_BY_PRICE){
+            result = array.sort(function(a, b) {
+                if ( a.cost > b.cost ){ return -1; }
+                if ( a.cost < b.cost ){ return 1; }
+                return 0;
+            });
+        }else if (criteria === ORDER_BY_RELEVANCE){
+            result = array.sort(function(a, b) {
+                let aCount = parseInt(a.soldCount);
+                let bCount = parseInt(b.soldCount);
+    
+                if ( aCount > bCount ){ return -1; }
+                if ( aCount < bCount ){ return 1; }
+                return 0;
+            });
+        }
+    
+        return result;
     }
 
     function sortAndShowProducts(sortCriteria, productsArray){
