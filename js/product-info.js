@@ -1,6 +1,7 @@
 let infoProd;
 let commentsProd;
 
+//Información del producto
 function showInformationProduct(){
    
     let htmlContentToAppend = `
@@ -23,7 +24,7 @@ function showInformationProduct(){
 };
 
 
-
+//Imágenes
 function showImagesProduct(){
     
     let htmlContentToAppend = ``;
@@ -37,7 +38,7 @@ function showImagesProduct(){
     
 };
 
-
+//Comentarios
 function showCommentsProduct(){
    
     htmlContentToAppend = ``;
