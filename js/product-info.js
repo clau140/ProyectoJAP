@@ -17,9 +17,7 @@ function showInformationProduct(){
             <p>${infoProd.soldCount}</p>
             <hr>
             <h5 class="fw-bold">Imágenes ilustrativas</h5>
-        </div>
-        
-        
+        </div>   
     `;
     document.getElementById("prodInfo").innerHTML = htmlContentToAppend;
 };
@@ -30,14 +28,11 @@ function showImagesProduct(){
     
     let htmlContentToAppend = ``;
     let imagesProduct = infoProd.images;
-
     for (let image of imagesProduct){
         
-        htmlContentToAppend += `
-            
-            <img class="img-thumbnail" src=${image}>
-        `;
+        htmlContentToAppend += `<img class="img-thumbnail" src=${image}>`;
     }
+
     document.getElementById("images").innerHTML += htmlContentToAppend;
     
 };
@@ -46,6 +41,7 @@ function showImagesProduct(){
 function showCommentsProduct(){
    
     htmlContentToAppend = ``;
+
     for (let comment of commentsProd){
         let stars = '';
         for (let i = 1; i <= 5; i++){
@@ -82,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(function(resultObj){
         if (resultObj.status === "ok"){
             infoProd = resultObj.data;
-            showImagesProduct();
             showInformationProduct();
+            showImagesProduct();
         }
     });
 
@@ -94,11 +90,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             showCommentsProduct();
         }
     });
+
 });
+//Usuario
+document.getElementById("user-name").innerHTML = `${sessionStorage.getItem("loggedInUser")}`;
 
-document.getElementById("user-name").innerHTML = `${sessionStorage.getItem('loggedInUser')}`;
-
+//Form
 document.getElementById("send").addEventListener("click", ()=>{
     document.getElementById("opinion").value = '';
     document.getElementById("scores").selectedIndex = 0;
+
 });
