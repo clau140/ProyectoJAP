@@ -44,11 +44,9 @@ function signOf (){
 
   localStorage.setItem('condition', '');
   location.replace('login.html');
-
 }
 
 document.getElementById('close').addEventListener('click', function(){
-
-  signOf();
+signOf();
 
 })

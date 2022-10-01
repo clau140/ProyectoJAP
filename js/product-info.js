@@ -1,5 +1,6 @@
 let infoProd;
 let commentsProd;
+let productRel = [];
 
 //Información del producto
 function showInformationProduct(){
@@ -70,6 +71,29 @@ function showCommentsProduct(){
     
 }
 
+//Entrega 4 Productos Relacionados
+//Obtiene id de productos relacionados y redirecciona a info de producto
+function productRelated(id){
+    localStorage.setItem('prodID', id);
+    window.location ='product-info.html';
+}
+//Muestra productos relacionados
+function showRelated(){
+    let productToAppend = '';
+
+    for (let product of productRel){
+
+        productToAppend += `
+        <div onclick="productRelated(${product.id})" class="img-thumbnail">
+            <img src="${product.image}" alt="product image" class='w-100'>
+            <p>${product.name}</p>
+        </div>
+        `
+    }
+    
+    document.getElementById('prodRelated').innerHTML += productToAppend;
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -79,8 +103,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(function(resultObj){
         if (resultObj.status === "ok"){
             infoProd = resultObj.data;
+            productRel = infoProd.relatedProducts;
             showInformationProduct();
             showImagesProduct();
+            showRelated();
         }
     });
 
