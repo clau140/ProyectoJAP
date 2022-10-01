@@ -2,9 +2,7 @@ let email = document.getElementById('box-email');
 let password = document.getElementById('box-password');
 let button = document.getElementById('get-into');
 
-if (sessionStorage.getItem('condition') == 'loggedInUser') {
-    location.href = "index.html";
-}
+
 
 button.addEventListener('click', function(event){
 
@@ -28,4 +26,6 @@ button.addEventListener('click', function(event){
         //a través de sessionStorage si está logueado se muestra en en index.js el email ingresado en la pantalla de login
         sessionStorage.setItem('loggedInUser', email.value);
     }
+
+    
 })

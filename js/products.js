@@ -148,6 +148,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     
 });
 
+document.getElementById("user-name").innerHTML = `${sessionStorage.getItem('loggedInUser')}`;
+
 function setProdID(id) {
     localStorage.setItem("prodID", id);
     window.location = "product-info.html"
